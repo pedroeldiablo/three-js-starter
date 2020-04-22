@@ -1,8 +1,30 @@
 import React, {useState, useRef } from 'react';
-import { Canvas, useFrame } from 'react-three-fiber';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { Canvas, extend, useThree, useFrame } from 'react-three-fiber';
 import { useSpring, a } from 'react-spring/three';
 
 import './style.css';
+
+extend({OrbitControls});
+
+const Controls = () => {
+  const orbitRef = useRef();
+  const { camera, gl} = useThree();
+
+  useFrame(() => {
+    orbitRef.current.update();
+  });
+
+  return (
+    <orbitControls 
+	  autoRotate
+	  maxPolarAngle={Math.PI / 1.5}
+	  minPolarAngle={Math.PI / 3}
+      args={[camera, gl.domElement]}
+      ref={orbitRef}
+    />
+  );
+};
 
 const Box = () => {
   const mesh = useRef();
@@ -13,8 +35,6 @@ const Box = () => {
     color: hovered ? 'pink' : 'blue'
 
   });
-
-  useFrame(() => (mesh.current.rotation.y += 0.01));
 
   return(
     <a.mesh 
@@ -38,5 +58,6 @@ const Box = () => {
 
 export default () => 
   <Canvas>
+    <Controls />
     <Box />
   </Canvas>;
