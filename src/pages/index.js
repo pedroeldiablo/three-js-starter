@@ -5,9 +5,13 @@ import './style.css';
 
 const Box = () => {
   const [hovered, setHovered] = useState(false);
+  const [active, setActive] = useState(false);
   return(
     <mesh onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}>
+      onPointerOut={() => setHovered(false)}
+      onClick={() => setActive(!active)}
+      scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
+    >
       <boxBufferGeometry 
         attach="geometry"
         args={[1,1,1]}
@@ -23,5 +27,4 @@ const Box = () => {
 export default () => 
   <Canvas>
     <Box />
-    
   </Canvas>;
