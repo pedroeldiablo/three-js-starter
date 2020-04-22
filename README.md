@@ -1,4 +1,10 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+Code along to Animation and 3D in react-three-fiber (with Paul Henschel) — Learn With Jason
+
+<https://www.youtube.com/watch?v=1rP3nNY2hTo&t=468s>
+
+
+
 <p align="center">
   <a href="https://www.gatsbyjs.org">
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
