@@ -1,3 +1,18 @@
-import React from "react"
+import React from 'react';
+import { Canvas } from 'react-three-fiber';
 
-export default () => <div>Hello world!</div>
+import './style.css';
+
+
+
+export default () => 
+  <Canvas>
+    <mesh>
+      <boxBufferGeometry 
+        attach="geometry"
+        args={[1,1,1]}
+      />
+      <meshBasicMaterial attach="material" color="blue" />
+
+    </mesh>
+  </Canvas>;
